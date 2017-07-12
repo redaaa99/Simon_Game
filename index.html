@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simon Game</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Orbitron:900' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+<div style="background-color: orange;height: 95px;border-bottom: 2px black solid;margin-bottom: 30px">
+<h1>Simon Game&copy;</h1>
+<p style="font-family:monospace;font-size:13pt;">
+			  by <a href="https://www.facebook.com/r.meskali" target="_blank" style="font-size:13pt;text-decoration: none;">Reda Meskali</a>&nbsp &nbsp
+	  			 <a href="https://www.linkedin.com/in/reda-meskali-848747b2/" target="_blank"><i class="fa fa-linkedin"></i></a>
+</p>
+</div>
+
+<div id="table">
+	<div class="buzzer" id="green"></div>
+	<div class="buzzer" id="red"></div>
+	<div class="buzzer" id="blue"></div>
+	<div class="buzzer" id="yellow"></div>
+	<div id="counterDisplay">
+			<div id="counter" style="width: 99px;">
+				<p id="realCounter">0 0</p>
+			</div>
+			<label class="switch">
+			  <p id="test">OFF/ON</p>
+			  <input id="check" type="checkbox">
+			  <span class="slider round"></span>
+			</label>
+			<p id="text">Strict</p>
+			<div id="strict"></div>
+	</div>
+	
+</div>
+	
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="script.js"></script>
+
+</html>
