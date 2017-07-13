@@ -170,27 +170,25 @@ input:checked + .slider:before {
 }
 
 #realCounter{
-	visibility: hidden;
+	visibility: visible;
+	opacity: 0;
 	font-family: 'Orbitron' ,sans-serif;
 	font-weight: 5px;
-    color :green;
+    color :#00ff00;
     margin: 3px auto;
     font-size: 20pt;
 }
 
 #strict{
-	background-color: orange;
+	background-color: #d63838;
 	width: 20px;
+	cursor: pointer;
 	height: 20px;
 	position: relative;
 	border-radius: 50%;
 	border:1px black solid;
 	left: 27px;
 	bottom: 11px;
-}
-#strict:hover{
-	cursor: pointer;
-	background-color: #7b5000;
 }
 
 #text{
