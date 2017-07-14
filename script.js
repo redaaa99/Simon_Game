@@ -2,9 +2,13 @@ var on=false;
 var strict_on=false;
 var playTime=false;
 
+var timer;
 var player_stack=[];
-var game_memory=[1,2,3,4,1,2,3,3,2,4];
+var game_memory=[];
 var counter=0;
+
+var corresp = {yellow : 1, blue : 2, green : 3 , red: 4};
+
 
 
 //Waiting for click event to start device
@@ -26,18 +30,32 @@ $(".slider").click(function(){
   }
 });
 
+
+
 function startDevice(){
+  on=false;
+  strict_on=false;
+  playTime=false;
+
+  timer;
+  player_stack=[];
+  game_memory=[];
+  counter=0;
   $('#realCounter').animate({
     opacity:1,
   },600,function(){
     $('p')[1].innerHTML="0 0";
   });
-  setTimeout(startGame, 3000);
-  game_memory=[];
   player_stack=[];
+  showCounter(0);
+  game_memory=[];
+  setTimeout(startGame, 3000);
+
+  
 }
 
 function shutDevice(){
+  game_memory=[];
   $('p')[1].innerHTML="_ _";
   $('#realCounter').animate({
     opacity:0,
@@ -45,13 +63,14 @@ function shutDevice(){
     $('p')[1].innerHTML="_ _";
   });
   player_stack=[];
-  game_memory=[];
+  clearAll();
 }
 
 function strictClicked(){
   if(!strict_on)
   {
     strict_on=true;
+
     $("#strict").css("background-color","#00ff00");
   }
   else
@@ -62,22 +81,84 @@ function strictClicked(){
 }
 
 
-function startGame(){
-  color = randomColor();
-  game_memory.push(color);
-  showGameMemory();
+function clearAll(){
+  game_memory=[];
+  clearTimeout(timer);
 }
 
-function addCounter(num)
+
+
+function startGame(){
+    color = randomColor();
+    game_memory.push(color);
+    showGameMemory();
+}
+ 
+function checkMove()
 {
-  counter++;
-  if(counter<10)
+  for(j=0;j<player_stack.length;j++)
   {
-    $('p')[1].innerHTML="0 "+counter;
+    if(player_stack[j]!=game_memory[j])
+    {
+        lostDisplay();
+    }
+  }
+
+  
+
+  if(player_stack.length==game_memory.length)
+  {
+    player_stack=[];
+    setTimeout(startGame,800);
+  }
+}
+
+function clicked(num)
+{
+  if(playTime)
+  {
+    clearTimeout(timer);
+    showColor(num);
+    player_stack.push(num);
+    showCounter(player_stack.length);
+    checkMove();
+  }
+}
+
+function lostDisplay()
+{
+  $('p')[1].innerHTML="! !";
+  setTimeout(function(){
+    playTime=false;
+  clearTimeout(timer);
+  if(strict_on)
+  {
+     player_stack=[];
+     game_memory=[];
+     clearAll();
+     showCounter(0);
+     shutDevice();
+     startDevice();
   }
   else
   {
-    $('p')[1].innerHTML=((counter/10)+" "+(counter%10));
+    player_stack=[];
+    showCounter(0);
+  }
+  setTimeout(showGameMemory,800);
+  },800);
+  
+}
+
+function showCounter(counterr)
+{
+  if(counterr<10)
+  {
+    $('p')[1].innerHTML="0 "+counterr;
+  }
+  else
+  {
+    $('p')[1].innerHTML=((Math.floor(counterr/10))+" "+(counterr%10));
   }
 }
 
@@ -116,18 +197,20 @@ function randomColor(){
 k=0;
 function showGameMemory()
 {
-  if(k<game_memory.length)
+  if(k<=game_memory.length)
   {
     
     showColor(game_memory[k]);
-    setTimeout(showGameMemory,1200);
-    addCounter(counter);
-    setTimeout(function(){k++;},100);
+    k++;
+    showCounter(k);
+    t=setTimeout(showGameMemory,1200);
   }
-  if(k==game_memory)
+  if(k>game_memory.length)
   {
+    k=0;
+    showCounter(k);
+    playTime=true;
+    timer = setTimeout(lostDisplay,5000);
     clearTimeout(t);
-  }
-  
+  } 
 }
-

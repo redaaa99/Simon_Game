@@ -171,12 +171,13 @@ input:checked + .slider:before {
 
 #realCounter{
 	visibility: visible;
-	opacity: 1;
+	opacity: 0;
 	font-family: 'Orbitron' ,sans-serif;
 	font-weight: 5px;
     color :#00ff00;
-    margin: 3px auto;
+    margin: 9px auto;
     font-size: 20pt;
+    text-shadow: 1px 1px 2px #00ff00, 0 0 25px #00ff00, 0 0 5px #00ff00;
 }
 
 #strict{
