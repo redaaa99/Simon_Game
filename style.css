@@ -55,7 +55,7 @@ h1{
 	position: relative;
     width: 230px;
     height: 230px;
-    background-color: #d63838;
+    background-color: #841b1b;
     border-top-right-radius: 100%;
     top: -214px;
     left: 257px;
@@ -65,7 +65,7 @@ h1{
 	position: relative;
     width: 230px;
     height: 230px;
-    background-color: #28288e;
+    background-color: #020261;
     border-bottom-right-radius: 100%;
     top: -204px;
     left: 256px;
@@ -75,7 +75,7 @@ h1{
 	position: relative;
     width: 230px;
     height: 230px;
-    background-color: #c5c521;
+    background-color: #8e8e10;
     border-bottom-left-radius: 100%;
     top: -433px;
     left: 15px;
@@ -171,7 +171,7 @@ input:checked + .slider:before {
 
 #realCounter{
 	visibility: visible;
-	opacity: 0;
+	opacity: 1;
 	font-family: 'Orbitron' ,sans-serif;
 	font-weight: 5px;
     color :#00ff00;
