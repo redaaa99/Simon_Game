@@ -15,18 +15,19 @@ var corresp = {yellow : 1, blue : 2, green : 3 , red: 4};
 $(".slider").click(function(){
   if(on)
   {
-    on=false;
+    
     shutDevice();
     player_stack=[];
     game_memory=[];
+    on=false;
 
   }
   else
   {
-    on=true;
     startDevice();
     player_stack=[];
     game_memory=[];
+    on=true;
   }
 });
 
@@ -34,7 +35,6 @@ $(".slider").click(function(){
 
 function startDevice(){
   on=false;
-  strict_on=false;
   playTime=false;
 
   timer;
@@ -49,24 +49,26 @@ function startDevice(){
   player_stack=[];
   showCounter(0);
   game_memory=[];
-  setTimeout(startGame, 3000);
+  time2 =setTimeout(startGame, 3000);
 
   
 }
 
 function shutDevice(){
-  game_memory=[];
-  $('p')[1].innerHTML="_ _";
+  
   $('#realCounter').animate({
     opacity:0,
   },600,function(){
-    $('p')[1].innerHTML="_ _";
+    $('p')[1].innerHTML="0 0";
+    $('#realCounter').css('opacity',0)
   });
   player_stack=[];
+  game_memory=[];
   clearAll();
 }
 
 function strictClicked(){
+
   if(!strict_on)
   {
     strict_on=true;
@@ -78,17 +80,25 @@ function strictClicked(){
     strict_on=false;
     $("#strict").css("background-color","#d63838");  
   }
+
 }
 
 
 function clearAll(){
   game_memory=[];
   clearTimeout(timer);
+  clearTimeout(time2);
+  // clearTimeout(time3);
+  // clearTimeout(time4);
+  // clearTimeout(time5);
+  // clearTimeout(time6);
+  // clearTimeout(t);
 }
 
 
 
 function startGame(){
+  // alert(strict_on);
     color = randomColor();
     game_memory.push(color);
     showGameMemory();
@@ -100,7 +110,17 @@ function checkMove()
   {
     if(player_stack[j]!=game_memory[j])
     {
+      // alert(strict_on);
+      if(strict_on)
+      {
+        game_memory=[];
         lostDisplay();
+        setTimeout(startGame,800);
+        return;
+      }
+        lostDisplay();
+        return;
+
     }
   }
 
@@ -109,7 +129,7 @@ function checkMove()
   if(player_stack.length==game_memory.length)
   {
     player_stack=[];
-    setTimeout(startGame,800);
+    time3 =setTimeout(startGame,800);
   }
 }
 
@@ -127,9 +147,10 @@ function clicked(num)
 
 function lostDisplay()
 {
+  document.getElementById('wrongSound').play();
   $('p')[1].innerHTML="! !";
-  setTimeout(function(){
-    playTime=false;
+  time4 =setTimeout(function(){
+  playTime=false;
   clearTimeout(timer);
   if(strict_on)
   {
@@ -137,15 +158,14 @@ function lostDisplay()
      game_memory=[];
      clearAll();
      showCounter(0);
-     shutDevice();
-     startDevice();
+     return;
   }
   else
   {
     player_stack=[];
     showCounter(0);
   }
-  setTimeout(showGameMemory,800);
+  time5 = setTimeout(showGameMemory,700);
   },800);
   
 }
@@ -167,24 +187,36 @@ function showColor(number)
   if(number==4)
   {
     $("#red").css("background-color","#ff2d2d");
+    $("#red").css("box-shadow","rgb(255, 47, 47) 16px -11px 88px");
+    document.getElementById('redSound').play();
   }
   if(number==3)
   {
     $("#green").css("background-color","#26da26");
+    $("#green").css("box-shadow","-10px -2px 88px #26da26");
+    document.getElementById('greenSound').play();
   }
   if(number==2)
   {
     $("#blue").css("background-color","#3030ff");
+    $("#blue").css("box-shadow","-10px -2px 88px #3030ff");
+    document.getElementById('blueSound').play();
   }
   if(number==1)
   {
     $("#yellow").css("background-color","rgb(241, 255, 54)");
+    $("#yellow").css("box-shadow","-10px -2px 88px rgb(241, 255, 54)");
+    document.getElementById('yellowSound').play();
   }
-  setTimeout(function(){
+  time6 = setTimeout(function(){
     $("#red").css("background-color","#841b1b");
+    $("#red").css("box-shadow","0px 0px 0px #26da26");
     $("#green").css("background-color","#277b27");
+    $("#green").css("box-shadow","0px 0px 0px #26da26");
     $("#blue").css("background-color","#020261");
+    $("#blue").css("box-shadow","0px 0px 0px #26da26");
     $("#yellow").css("background-color","#8e8e10");
+    $("#yellow").css("box-shadow","0px 0px 0px #26da26");
   },300);
 }
 
@@ -195,6 +227,7 @@ function randomColor(){
 
 
 k=0;
+tempo=1200;
 function showGameMemory()
 {
   if(k<=game_memory.length)
@@ -203,7 +236,25 @@ function showGameMemory()
     showColor(game_memory[k]);
     k++;
     showCounter(k);
-    t=setTimeout(showGameMemory,1200);
+    switch(game_memory.length)
+    {
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+        tempo = 1200;
+          break;
+      case 5:
+        tempo = 900;
+        break;
+      case 9:
+        tempo = 700;
+        break;
+      case 13:
+        tempo = 600;
+        break;
+    }
+    t=setTimeout(showGameMemory,tempo);
   }
   if(k>game_memory.length)
   {

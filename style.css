@@ -1,47 +1,47 @@
 *{
-	margin: 0px;
+  margin: 0px;
 }
 
 #test{
-	position: relative;
-	color: white;
-	font-family: monospace;
-	color: white;
-	bottom: 20px;
-	right: 7px;
+  position: relative;
+  color: white;
+  font-family: monospace;
+  color: white;
+  bottom: 20px;
+  right: 7px;
 }
 
 body{
-	margin:0px;
-	text-align: center;
-	background-image: url("http://cdn.backgroundhost.com/backgrounds/subtlepatterns/retina_wood.png");
+  margin:0px;
+  text-align: center;
+  background-image: url("http://cdn.backgroundhost.com/backgrounds/subtlepatterns/retina_wood.png");
 }
 
 h1{
-	font-family: monospace;
-	font-size: 25pt;
-	border-bottom: 1px solid #333;
-	width: 240px;
-	margin: 0 auto;
-	margin-bottom: 20px;
+  font-family: monospace;
+  font-size: 25pt;
+  border-bottom: 1px solid #333;
+  width: 240px;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 
 #table{
-	width: 500px;
-	height: 500px;
-	background-color: #333;
-	border-radius: 50%;
-	border:1px #999 solid;
-	margin: 0 auto;
-	-webkit-box-shadow: 0px 0px 68px 9px rgba(0,0,0,0.75);
+  width: 500px;
+  height: 500px;
+  background-color: #333;
+  border-radius: 50%;
+  border:1px #999 solid;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 0px 68px 9px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 68px 9px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 68px 9px rgba(0,0,0,0.75);
 
 }
 
 #green{
-	 position: relative;
+   position: relative;
     width: 230px;
     height: 230px;
     background-color: #277b27;
@@ -52,7 +52,7 @@ h1{
 
 
 #red{
-	position: relative;
+  position: relative;
     width: 230px;
     height: 230px;
     background-color: #841b1b;
@@ -62,7 +62,7 @@ h1{
 }
 
 #blue{
-	position: relative;
+  position: relative;
     width: 230px;
     height: 230px;
     background-color: #020261;
@@ -72,7 +72,7 @@ h1{
 }
 
 #yellow{
-	position: relative;
+  position: relative;
     width: 230px;
     height: 230px;
     background-color: #8e8e10;
@@ -82,7 +82,7 @@ h1{
 }
 
 #counterDisplay{
-	position: relative;
+  position: relative;
     width: 120px;
     height: 96px;
     background-color: #333;
@@ -155,48 +155,52 @@ input:checked + .slider:before {
 }
 
 #counter{
-	height: 36px;
-    width: 73px;
-    position: relative;
-    border-top-right-radius: 62px;
-    border-top-left-radius: 62px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    background-color: #1E1E1E;
-    border: 5px #ccc solid;
-    top: 5px;
-    left: 5.6px;
-    width: 109px;
+  height: 36px;
+  width: 73px;
+  position: relative;
+  vertical-align: middle;
+  border-top-right-radius: 62px;
+  border-top-left-radius: 62px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #1E1E1E;
+  border: 5px #ccc solid;
+  top: 5px;
+  text-align: center;
+  left: 5.6px;
+  width: 109px;
 }
 
 #realCounter{
-	visibility: visible;
-	opacity: 0;
-	font-family: 'Orbitron' ,sans-serif;
-	font-weight: 5px;
-    color :#00ff00;
-    margin: 9px auto;
-    font-size: 20pt;
-    text-shadow: 1px 1px 2px #00ff00, 0 0 25px #00ff00, 0 0 5px #00ff00;
+  visibility: visible;
+  opacity: 0;
+  font-family: 'Orbitron' ,sans-serif;
+  font-weight: 5px;
+  color: #00ff00;
+  vertical-align: middle;
+  text-align: center;
+  margin: 9px auto;
+  font-size: 20pt;
+  text-shadow: 1px 1px 2px #00ff00, 0 0 25px #00ff00, 0 0 5px #00ff00;
 }
 
 #strict{
-	background-color: #d63838;
-	width: 20px;
-	cursor: pointer;
-	height: 20px;
-	position: relative;
-	border-radius: 50%;
-	border:1px black solid;
-	left: 27px;
-	bottom: 11px;
+  background-color: #d63838;
+  width: 20px;
+  cursor: pointer;
+  height: 20px;
+  position: relative;
+  border-radius: 50%;
+  border:1px black solid;
+  left: 27px;
+  bottom: 11px;
 }
 
 #text{
-	color:white;
-	font-family: monospace;
-	font-size: 10pt;
-	position: relative;
-	bottom: 13px;
-	right: 22px;
+  color:white;
+  font-family: monospace;
+  font-size: 10pt;
+  position: relative;
+  bottom: 13px;
+  right: 22px;
 }
